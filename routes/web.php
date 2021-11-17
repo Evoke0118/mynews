@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('news/create', 'Admin\NewsController@add');
+  });
+//Route::get('admin/news/create', 'Admin\NewsController@add'); この書き方でもおっけい
+// グループ化することで複数行うことができて便利でわかりやすい
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('news/edit', 'Admin\ProfileController@edit');
+    Route::get('news/delete', 'Admin\ProfileController@delete');
+});
+// NewsControllerのgroupの中に入れることはできるのか？
+
+
+
