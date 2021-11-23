@@ -18,16 +18,20 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function() {
+    //NewsController
     Route::get('news/create', 'Admin\NewsController@add');
-  });
+    Route::post('news/create', 'Admin\NewsController@create');
+    Route::get('news', 'Admin\NewsController@index');
+    Route::get('news/edit', 'Admin\NewsController@edit');   });
 //Route::get('admin/news/create', 'Admin\NewsController@add'); この書き方でもおっけい
 // グループ化することで複数行うことができて便利でわかりやすい
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('news/edit', 'Admin\ProfileController@edit');
-    Route::get('news/delete', 'Admin\ProfileController@delete');
+       //ProfileController
+       Route::get('profile/create', 'Admin\ProfileController@add');
+       Route::get('profile/edit', 'Admin\ProfileController@edit');
+       Route::post('profile/create', 'Admin\ProfileController@create');
+       Route::get('profile/index', 'Admin\ProfileController@index');
 });
 // NewsControllerのgroupの中に入れることはできるのか？
-
-
 
