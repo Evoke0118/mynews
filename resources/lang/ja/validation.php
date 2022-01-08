@@ -96,7 +96,7 @@ return [
     'password' => 'The password is incorrect.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => ':attribute に入力が必要です。',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -145,7 +145,26 @@ return [
     | of "email". This simply helps us make our message more expressive.
     |
     */
+    'attributes' => [
+        'title' => 'タイトル',
+        'body' => '本文'
+    ],
 
-    'attributes' => [],
-
+    'attributes' => [
+        'name' => '名前',
+        'gender' => '性別',
+        'hobby' => '趣味',
+        'introduction' => '自己紹介',
+    ],
 ];
+
+
+
+
+
+
+
+
+
+
+
