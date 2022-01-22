@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 // 以下を追記することでNews Modelが扱えるようになる
 use App\Profile;
-use App\profilehistory;
+use App\Profilehistory;
 use Carbon\Carbon;
 
 class ProfileController extends Controller
@@ -44,6 +44,7 @@ class ProfileController extends Controller
     return redirect('admin/profile/create');
  }
 
+
  public function index(Request $request)
  {
      $cond_title = $request->cond_title;
@@ -57,6 +58,7 @@ class ProfileController extends Controller
      return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
  }
 
+
  public function edit(Request $request)
  {
      // Profile Modelからデータを取得する
@@ -64,7 +66,10 @@ class ProfileController extends Controller
      if (empty($profile)) {
          abort(404);
      }
+    //  dd($profile);
+
      return view('admin.profile.edit', ['profile_form' => $profile]);
+     dump($profile_form);
  }
 
 
@@ -88,6 +93,7 @@ class ProfileController extends Controller
 
      return redirect('admin/profile');
  }
+
 
  public function delete(Request $request)
  {
